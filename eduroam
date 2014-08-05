@@ -1,0 +1,56 @@
+server eduroam {
+        authorize {
+                auth_log
+                cui_authorize
+                wimax
+                suffix
+                eap {
+                     	ok = return
+                }
+                files
+        }
+
+	authenticate {
+                #  Comment out the PAP Auth-Type once your eduroam setup is working
+                Auth-Type PAP {
+                        pap
+                }
+                #  eduroam only supplies EAP authentication
+                eap
+        }
+
+	post-auth {
+                cui_postauth
+                reply_log
+                eduroam_log
+                #  authentication failed. eduroam requires you to log these
+                Post-Auth-Type REJECT {
+                        attr_filter.access_reject
+                        reply_log
+                        eduroam_log
+                }
+        }
+
+	pre-proxy {
+                if ("%{Packet-Type}" == Access-Request) {
+                        attr_filter.pre-proxy
+                }
+                cui_preproxy
+                pre_proxy_log
+        }
+
+	post-proxy {
+                post_proxy_log
+		attr_filter.post-proxy
+                # if you don't proxy LEAP, comment the following line out
+                eap
+        }
+}
+
+
+
+
+
+
+
+

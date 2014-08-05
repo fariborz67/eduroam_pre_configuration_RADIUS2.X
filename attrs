@@ -1,0 +1,36 @@
+
+
+DEFAULT
+       	User-Name =* ANY,
+        Operator-Name =* ANY,
+        Class =* ANY,
+        Calling-Station-ID =* ANY,
+        Chargeable-User-Identity =* ANY,
+        Acct-Status-Type =* ANY,
+        Acct-Session-ID =* ANY,
+        Service-Type == Framed-User,
+        Service-Type == Login-User,
+        Login-Service == Telnet,
+        Login-Service == Rlogin,
+        Login-Service == TCP-Clear,
+        Login-TCP-Port <= 65536,
+        Framed-IP-Address == 255.255.255.254,
+        Framed-IP-Netmask == 255.255.255.255,
+        Framed-Protocol == PPP,
+        Framed-Protocol == SLIP,
+        Framed-Compression == Van-Jacobson-TCP-IP,
+        Framed-MTU >= 576,
+        Framed-Filter-ID =* ANY,
+        Reply-Message =* ANY,
+        Proxy-State =* ANY,
+        EAP-Message =* ANY,
+        Message-Authenticator =* ANY,
+        MS-MPPE-Recv-Key =* ANY,
+        MS-MPPE-Send-Key =* ANY,
+        MS-CHAP-MPPE-Keys =* ANY,
+        State =* ANY,
+        Session-Timeout <= 28800,
+        Idle-Timeout <= 600,
+        Port-Limit <= 2
+
+

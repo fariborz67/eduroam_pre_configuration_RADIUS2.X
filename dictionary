@@ -1,0 +1,3 @@
+$INCLUDE        /usr/share/freeradius/dictionary
+ATTRIBUTE	Operator-Name            126    string
+ATTRIBUTE	Chargeable-User-Identity   89   string
